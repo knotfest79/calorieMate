@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">application</string>
+    <string name="activity">Activity</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="camera">Camera</string>
+    <string name="profile">Profile</string>
+    <string-array name="gender_options">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+</resources>

@@ -1,0 +1,98 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.caloriemate.application.view.model.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileDetailsFragment"
+        android:name="com.caloriemate.application.view.model.ProfileDetailsFragment"
+        android:label="profile details"
+        tools:layout="@layout/profile_details_fragment">
+        <action
+            android:id="@+id/action_profileDetailsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <argument
+            android:name="userEmail"
+            app:argType="string" />
+        <argument
+            android:name="userPassword"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.caloriemate.application.view.model.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/menu_fragment">
+        <action
+            android:id="@+id/action_menuFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment">
+            <argument
+                android:name="itemDetails"
+                app:argType="com.caloriemate.application.database.entities.FoodItem" />
+        </action>
+        <action
+            android:id="@+id/action_menuFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.caloriemate.application.view.model.ItemDetailsFragment"
+        android:label="Item Details"
+        tools:layout="@layout/item_details_fragment">
+        <argument
+            android:name="itemDetails"
+            app:argType="com.caloriemate.application.database.entities.FoodItem" />
+        <action
+            android:id="@+id/action_itemDetailsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.caloriemate.application.view.model.CalculatorFragment"
+        android:label="Calculator"
+        tools:layout="@layout/calculator_fragment">
+        <argument
+            android:name="checkedFoodItems"
+            app:argType="com.caloriemate.application.database.entities.FoodItem[]" />
+        <action
+            android:id="@+id/action_calculatorFragment_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.caloriemate.application.view.model.SignUpFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/sign_up_fragment">
+        <action
+            android:id="@+id/action_signUpFragment_to_profileDetailsFragment"
+            app:destination="@+id/profileDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.caloriemate.application.view.model.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment">
+    </fragment>
+</navigation>
